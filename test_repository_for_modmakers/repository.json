@@ -1,0 +1,29 @@
+{
+  "name": "Test Repository",
+  "categories": {
+    "1": {
+	  "name": "nexusmods_translations",
+      "type": "nexus_api",
+	  "is_translation": "true",
+      "path": "nexusmods_translations"
+    },
+	"2": {
+	  "name": "nexusmods_mods",
+      "type": "nexus_api",
+	  "is_translation": "false",
+      "path": "nexusmods_mods"
+    },
+    "3": {
+	  "name": "early_access_translations",
+      "type": "repository",
+	  "is_translation": "true",
+      "path": "early_access_translations"
+    },
+    "4": {
+	  "name": "early_access_mods",
+      "type": "repository",
+	  "is_translation": "false",
+      "path": "early_access_mods"
+    }
+  }
+}

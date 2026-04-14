@@ -1,0 +1,48 @@
+{
+  "files": [
+    {
+      "display_name": "campaign.7z",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "3.0.1",
+          "description": "Основной архив с кампанией и необходимыми скриптами.",
+          "expected_files": {
+            "1": "campaign.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v3.0.1/campaign.7z"
+          },
+          "size": {
+            "1": 20971520
+          },
+          "hash": {
+            "1": "sha256:ghi789"
+          }
+        }
+      ]
+    },
+    {
+      "display_name": "campaign_voice.7z",
+      "category": "OPTIONAL",
+      "versions": [
+        {
+          "version": "3.0.1",
+          "description": "Дополнительные голосовые файлы для новой кампании.",
+          "expected_files": {
+            "1": "campaign_voice.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v3.0.1/campaign_voice.7z"
+          },
+          "size": {
+            "1": 10485760
+          },
+          "hash": {
+            "1": "sha256:ghi790"
+          }
+        }
+      ]
+    }
+  ]
+}

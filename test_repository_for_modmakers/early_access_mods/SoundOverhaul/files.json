@@ -1,0 +1,26 @@
+{
+  "files": [
+    {
+      "display_name": "sound_overhaul.7z",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "1.5.2",
+          "description": "Основной пакет звуков.",
+          "expected_files": {
+            "1": "sound_overhaul.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v1.5.2/sound_overhaul.7z"
+          },
+          "size": {
+            "1": 26214400
+          },
+          "hash": {
+            "1": "sha256:stu901"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "requirements": [
+    {
+      "name": "Campaign Extension",
+      "folder": "CampaignExtension",
+      "type": "optional",
+      "description": "Optional. Adds additional missions that tie into the Campaign Extension storyline."
+    }
+  ]
+}

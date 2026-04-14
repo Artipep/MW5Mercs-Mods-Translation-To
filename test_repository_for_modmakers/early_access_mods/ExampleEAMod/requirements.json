@@ -1,0 +1,22 @@
+{
+  "requirements": [
+    {
+      "name": "Weapon Pack Plus",
+      "folder": "WeaponPack",
+      "type": "required",
+      "description": "Required dependency for weapon compatibility and extended weapon support."
+    },
+    {
+      "name": "Sound Overhaul",
+      "folder": "SoundOverhaul",
+      "type": "optional",
+      "description": "Optional dependency for enhanced sound effects. Improves audio experience when installed."
+    },
+    {
+      "name": "Yet Another Mechlab",
+      "nexus_mod_id": 459,
+      "type": "required",
+      "description": "Nexusmods dependency for advanced mechlab features."
+    }
+  ]
+}

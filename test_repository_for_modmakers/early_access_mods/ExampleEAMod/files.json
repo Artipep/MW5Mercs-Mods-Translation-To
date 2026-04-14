@@ -1,0 +1,86 @@
+{
+  "files": [
+    {
+      "display_name": "Main Files",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "description": "Основные файлы мода. Содержит все необходимые компоненты для работы.",
+          "expected_files": {
+            "1": "mod_main.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v1.0.0/mod_main.7z"
+          },
+          "size": {
+            "1": 1048576
+          },
+          "hash": {
+            "1": "sha256:test456"
+          }
+        },
+        {
+          "version": "0.9.5",
+          "description": "Предыдущая стабильная версия.",
+          "expected_files": {
+            "1": "mod_main.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v0.9.5/mod_main.7z"
+          },
+          "size": {
+            "1": 1000000
+          },
+          "hash": {
+            "1": "sha256:test455"
+          }
+        }
+      ]
+    },
+    {
+      "display_name": "HD Textures",
+      "category": "OPTIONAL",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "description": "Дополнительные текстуры высокого разрешения для мода.",
+          "expected_files": {
+            "1": "mod_hd_textures.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v1.0.0/mod_hd_textures.7z"
+          },
+          "size": {
+            "1": 524288
+          },
+          "hash": {
+            "1": "sha256:test457"
+          }
+        }
+      ]
+    },
+    {
+      "display_name": "Alternative Sounds",
+      "category": "OPTIONAL",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "description": "Альтернативные звуки оружия.",
+          "expected_files": {
+            "1": "mod_alt_sounds.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v1.0.0/mod_alt_sounds.7z"
+          },
+          "size": {
+            "1": 262144
+          },
+          "hash": {
+            "1": "sha256:test458"
+          }
+        }
+      ]
+    }
+  ]
+}

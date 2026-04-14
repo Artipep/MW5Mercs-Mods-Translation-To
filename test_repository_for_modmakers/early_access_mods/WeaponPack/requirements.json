@@ -1,0 +1,10 @@
+{
+  "requirements": [
+    {
+      "name": "Mech Expansion Pack",
+      "folder": "MechExpansion",
+      "type": "optional",
+      "description": "Optional compatibility with Mech Expansion Pack for expanded weapon loadout options."
+    }
+  ]
+}

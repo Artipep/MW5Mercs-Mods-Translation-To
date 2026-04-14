@@ -1,0 +1,48 @@
+{
+  "files": [
+    {
+      "display_name": "mech_expansion_main.7z",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "1.2.0",
+          "description": "Основной архив с моделями мехов и необходимыми скриптами.",
+          "expected_files": {
+            "1": "mech_expansion_main.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v1.2.0/mech_expansion_main.7z"
+          },
+          "size": {
+            "1": 15728640
+          },
+          "hash": {
+            "1": "sha256:def456"
+          }
+        }
+      ]
+    },
+    {
+      "display_name": "mech_expansion_patch.7z",
+      "category": "OPTIONAL",
+      "versions": [
+        {
+          "version": "1.2.0",
+          "description": "Патч для совместимости с Weapon Pack Plus.",
+          "expected_files": {
+            "1": "mech_expansion_patch.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v1.2.0/mech_expansion_patch.7z"
+          },
+          "size": {
+            "1": 1048576
+          },
+          "hash": {
+            "1": "sha256:def457"
+          }
+        }
+      ]
+    }
+  ]
+}

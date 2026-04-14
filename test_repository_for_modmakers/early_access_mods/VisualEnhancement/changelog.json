@@ -1,0 +1,11 @@
+{
+  "changelog": [
+    {
+      "version": "2.1.0",
+      "date": "2026-01-05",
+      "changes": [
+        "HDR support, enhanced textures, new particle effects, optional HD texture pack"
+      ]
+    }
+  ]
+}

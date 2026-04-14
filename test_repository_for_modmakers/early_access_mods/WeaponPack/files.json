@@ -1,0 +1,86 @@
+{
+  "files": [
+    {
+      "display_name": "weapon_pack_main.7z",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "2.5.0",
+          "description": "Основные файлы мода. Включает всё новое оружие и необходимые скрипты.",
+          "expected_files": {
+            "1": "weapon_pack_main.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v2.5.0/weapon_pack_main.7z"
+          },
+          "size": {
+            "1": 5242880
+          },
+          "hash": {
+            "1": "sha256:abc123"
+          }
+        },
+        {
+          "version": "2.0.0",
+          "description": "Предыдущая версия для совместимости со старыми сохранениями.",
+          "expected_files": {
+            "1": "weapon_pack_v2.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v2.0.0/weapon_pack_v2.7z"
+          },
+          "size": {
+            "1": 5000000
+          },
+          "hash": {
+            "1": "sha256:abc122"
+          }
+        }
+      ]
+    },
+    {
+      "display_name": "weapon_pack_mech_expansion.7z",
+      "category": "OPTIONAL",
+      "versions": [
+        {
+          "version": "2.5.0",
+          "description": "Плагиат для интеграции с Mech Expansion.",
+          "expected_files": {
+            "1": "weapon_pack_mech_expansion.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v2.5.0/weapon_pack_mech_expansion.7z"
+          },
+          "size": {
+            "1": 262144
+          },
+          "hash": {
+            "1": "sha256:opt001"
+          }
+        }
+      ]
+    },
+    {
+      "display_name": "weapon_pack_sounds.7z",
+      "category": "OPTIONAL",
+      "versions": [
+        {
+          "version": "2.5.0",
+          "description": "Дополнительные звуки выстрелов для нового оружия.",
+          "expected_files": {
+            "1": "weapon_pack_sounds.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v2.5.0/weapon_pack_sounds.7z"
+          },
+          "size": {
+            "1": 524288
+          },
+          "hash": {
+            "1": "sha256:opt002"
+          }
+        }
+      ]
+    }
+  ]
+}

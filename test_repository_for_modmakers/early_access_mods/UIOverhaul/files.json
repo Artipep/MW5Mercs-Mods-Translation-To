@@ -1,0 +1,48 @@
+{
+  "files": [
+    {
+      "display_name": "ui_overhaul.7z",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "1.8.5",
+          "description": "Основные файлы интерфейса.",
+          "expected_files": {
+            "1": "ui_overhaul.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v1.8.5/ui_overhaul.7z"
+          },
+          "size": {
+            "1": 3145728
+          },
+          "hash": {
+            "1": "sha256:jkl012"
+          }
+        }
+      ]
+    },
+    {
+      "display_name": "ui_overhaul_colors.7z",
+      "category": "OPTIONAL",
+      "versions": [
+        {
+          "version": "1.8.5",
+          "description": "Альтернативная цветовая схема для интерфейса.",
+          "expected_files": {
+            "1": "ui_overhaul_colors.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v1.8.5/ui_overhaul_colors.7z"
+          },
+          "size": {
+            "1": 524288
+          },
+          "hash": {
+            "1": "sha256:jkl013"
+          }
+        }
+      ]
+    }
+  ]
+}

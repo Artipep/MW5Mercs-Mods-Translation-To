@@ -1,0 +1,25 @@
+{
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2025-12-15",
+      "changes": [
+        "Initial stable release.",
+        "Added HD texture pack as optional component.",
+        "Added alternative weapon sounds as optional component.",
+        "Improved compatibility with Weapon Pack Plus.",
+        "Fixed crash on mission load with certain mech configurations."
+      ]
+    },
+    {
+      "version": "0.9.5",
+      "date": "2025-11-01",
+      "changes": [
+        "Beta release for early access testing.",
+        "Core mod functionality implemented.",
+        "Basic weapon integration support.",
+        "Known issue: occasional texture flickering on some maps."
+      ]
+    }
+  ]
+}

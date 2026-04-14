@@ -1,0 +1,11 @@
+{
+  "changelog": [
+    {
+      "version": "1.5.2",
+      "date": "2025-12-10",
+      "changes": [
+        "Updated weapon sounds, improved mech footsteps, ambient environment audio"
+      ]
+    }
+  ]
+}

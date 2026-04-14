@@ -1,0 +1,56 @@
+{
+  "files": [
+    {
+      "display_name": "visual_enhancement.7z.001",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "2.1.0",
+          "description": "Основные графические улучшения. Архив разбит на 3 части из-за размера.",
+          "expected_files": {
+            "1": "visual_enhancement.7z.001",
+            "2": "visual_enhancement.7z.002",
+            "3": "visual_enhancement.7z.003"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v2.1.0/visual_enhancement.7z.001",
+            "2": "https://github.com/test/repo/releases/download/v2.1.0/visual_enhancement.7z.002",
+            "3": "https://github.com/test/repo/releases/download/v2.1.0/visual_enhancement.7z.003"
+          },
+          "size": {
+            "1": 52428800,
+            "2": 31457280,
+            "3": 20971520
+          },
+          "hash": {
+            "1": "sha256:pqr678a",
+            "2": "sha256:pqr678b",
+            "3": "sha256:pqr678c"
+          }
+        }
+      ]
+    },
+    {
+      "display_name": "visual_enhancement_hd.7z",
+      "category": "OPTIONAL",
+      "versions": [
+        {
+          "version": "2.1.0",
+          "description": "Дополнительные текстуры высокого разрешения.",
+          "expected_files": {
+            "1": "visual_enhancement_hd.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v2.1.0/visual_enhancement_hd.7z"
+          },
+          "size": {
+            "1": 20971520
+          },
+          "hash": {
+            "1": "sha256:pqr679"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "files": [
+    {
+      "display_name": "mod.7z",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "1.5.0",
+          "description": "Основные файлы мода.",
+          "expected_files": {
+            "1": "mod.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v1.5.0/mod.7z"
+          },
+          "size": {
+            "1": 1572864
+          },
+          "hash": {
+            "1": "sha256:regular456"
+          }
+        }
+      ]
+    }
+  ]
+}

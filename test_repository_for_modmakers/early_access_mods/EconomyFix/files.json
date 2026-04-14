@@ -1,0 +1,26 @@
+{
+  "files": [
+    {
+      "display_name": "economy_fix.7z",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "description": "Основной файл с исправлениями экономики.",
+          "expected_files": {
+            "1": "economy_fix.7z"
+          },
+          "url": {
+            "1": "https://github.com/test/repo/releases/download/v1.0.0/economy_fix.7z"
+          },
+          "size": {
+            "1": 1048576
+          },
+          "hash": {
+            "1": "sha256:mno345"
+          }
+        }
+      ]
+    }
+  ]
+}

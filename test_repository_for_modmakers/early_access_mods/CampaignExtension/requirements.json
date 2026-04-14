@@ -1,0 +1,16 @@
+{
+  "requirements": [
+    {
+      "name": "Mech Expansion Pack",
+      "folder": "MechExpansion",
+      "type": "required",
+      "description": "Required for campaign mission scripts and new mech variants."
+    },
+    {
+      "name": "Economy Balance Fix",
+      "folder": "EconomyFix",
+      "type": "required",
+      "description": "Required for proper economy integration in campaign missions."
+    }
+  ]
+}
