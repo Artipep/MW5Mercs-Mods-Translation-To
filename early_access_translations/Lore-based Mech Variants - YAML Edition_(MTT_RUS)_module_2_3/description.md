@@ -1,0 +1,1 @@
+Перевод (RUS) внутренних файлов мода Lore-based Mech Variants - YAML-Edition

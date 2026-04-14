@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "display_name": "Lore-based Mech Variants - YAML-Edition / MTT RUS module 2_3",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "2.2",
+          "compatibility": [
+            {
+              "version": "5.62",
+              "build": "343"
+            }
+          ],
+          "expected_files": {
+            "1": "Lore-based Mech Variants - YAML Edition_(MTT_RUS)_module_2_3.zip"
+          },
+          "url": {
+            "1": "https://boosty.to/arti100/posts/535a7881-e1fc-4422-bae3-413ca83d3a7f?share=post_link"
+          },
+          "size": {
+            "1": 4785367
+          },
+          "hash": {
+            "1": "sha256:29cbc026c59081aa57d96570a90b45929ba0819353990cd5aa01820fa6219d2f"
+          }
+        }
+      ]
+    }
+  ]
+}

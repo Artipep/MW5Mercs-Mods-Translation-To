@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "display_name": "Yet Another Special Variant / MTT RUS module 2_3",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "2.2",
+          "compatibility": [
+            {
+              "version": "3.6.2",
+              "build": "477"
+            }
+          ],
+          "expected_files": {
+            "1": "SpecialVariants_(MTT_RUS)_module_2_3.zip"
+          },
+          "url": {
+            "1": "https://boosty.to/arti100/posts/535a7881-e1fc-4422-bae3-413ca83d3a7f?share=post_link"
+          },
+          "size": {
+            "1": 4967566
+          },
+          "hash": {
+            "1": "sha256:cc6c278af178ef3a7e131452ba73f6c6ad82e9753b4af70bf4cc95ae0ef13914"
+          }
+        }
+      ]
+    }
+  ]
+}

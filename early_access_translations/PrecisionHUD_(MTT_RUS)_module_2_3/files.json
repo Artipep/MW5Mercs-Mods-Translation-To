@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "display_name": "Precision HUD / MTT RUS module 2_3",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "2.2",
+          "compatibility": [
+            {
+              "version": "2.0",
+              "build": "215"
+            }
+          ],
+          "expected_files": {
+            "1": "PrecisionHUD_(MTT_RUS)_module_2_3.zip"
+          },
+          "url": {
+            "1": "https://boosty.to/arti100/posts/535a7881-e1fc-4422-bae3-413ca83d3a7f?share=post_link"
+          },
+          "size": {
+            "1": 3805792
+          },
+          "hash": {
+            "1": "sha256:5d0ddc81afe39478fc9d53832c872f5382ba7f7c682144ffbae6d79ee00946be"
+          }
+        }
+      ]
+    }
+  ]
+}

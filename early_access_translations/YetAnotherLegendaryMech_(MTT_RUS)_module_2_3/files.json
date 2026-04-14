@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "display_name": "Yet Another Legendary Mech / MTT RUS module 2_3",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "2.2",
+          "compatibility": [
+            {
+              "version": "3.5.4",
+              "build": "991"
+            }
+          ],
+          "expected_files": {
+            "1": "YetAnotherLegendaryMech_(MTT_RUS)_module_2_3.zip"
+          },
+          "url": {
+            "1": "https://boosty.to/arti100/posts/535a7881-e1fc-4422-bae3-413ca83d3a7f?share=post_link"
+          },
+          "size": {
+            "1": 5951276
+          },
+          "hash": {
+            "1": "sha256:0afce2113afd9e2a1a82aa0d1decadbf2f0556893f339bdea3373a6d95c903d6"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Перевод (RUS) внутренних файлов мода Yet Another Equipment Collection

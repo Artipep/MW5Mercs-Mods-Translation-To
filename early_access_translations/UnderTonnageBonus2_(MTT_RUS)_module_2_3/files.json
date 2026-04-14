@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "display_name": "UnderTonnageBonus2 & Purchase Salvage2 / MTT RUS module 2_3",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "2.2",
+          "compatibility": [
+            {
+              "version": "5.2",
+              "build": "165"
+            }
+          ],
+          "expected_files": {
+            "1": "UnderTonnageBonus2_(MTT_RUS)_module_2_3.zip"
+          },
+          "url": {
+            "1": "https://boosty.to/arti100/posts/535a7881-e1fc-4422-bae3-413ca83d3a7f?share=post_link"
+          },
+          "size": {
+            "1": 3807974
+          },
+          "hash": {
+            "1": "sha256:0679b2325f70ad57097713601ca5e400702a560d3667505c9c7f55fd42b90161"
+          }
+        }
+      ]
+    }
+  ]
+}

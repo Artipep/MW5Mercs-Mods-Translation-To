@@ -1,0 +1,29 @@
+{
+  "name": "MW5:Mercs Mods Translation To / Ai Voice Translation",
+  "categories": {
+	"1": {
+	  "name": "Моды (Nexusmods)",
+      "type": "nexus_api",
+	  "is_translation": "false",
+      "path": "nexusmods_mods"
+    },
+	"2": {
+	  "name": "Переводы (Nexusmods)",
+      "type": "nexus_api",
+	  "is_translation": "true",
+      "path": "nexusmods_translations"
+    },
+    "3": {
+	  "name": "Моды (ранний доступ)",
+      "type": "repository",
+	  "is_translation": "false",
+      "path": "early_access_mods"
+    },
+	"4": {
+	  "name": "Переводы (ранний доступ)",
+      "type": "repository",
+	  "is_translation": "true",
+      "path": "early_access_translations"
+    }
+  }
+}

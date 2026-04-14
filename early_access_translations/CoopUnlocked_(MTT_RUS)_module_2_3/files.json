@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "display_name": "Co-op Unlocked / MTT RUS module 2_3",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "2.2",
+          "compatibility": [
+            {
+              "version": "1.2.2",
+              "build": "22"
+            }
+          ],
+          "expected_files": {
+            "1": "CoopUnlocked_(MTT_RUS)_module_2_3.zip"
+          },
+          "url": {
+            "1": "https://boosty.to/arti100/posts/535a7881-e1fc-4422-bae3-413ca83d3a7f?share=post_link"
+          },
+          "size": {
+            "1": 3770200
+          },
+          "hash": {
+            "1": "sha256:517542ff67ed12a79e5583688c027584ec5733a73bdb751972f1683cb3ec2841"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "display_name": "TTRulezAIMod3 / MTT RUS module 2_3",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "2.2",
+          "compatibility": [
+            {
+              "version": "1.0",
+              "build": "2"
+            }
+          ],
+          "expected_files": {
+            "1": "TTRulezAIMod3_(MTT_RUS)_module_2_3.zip"
+          },
+          "url": {
+            "1": "https://boosty.to/arti100/posts/535a7881-e1fc-4422-bae3-413ca83d3a7f?share=post_link"
+          },
+          "size": {
+            "1": 3741625
+          },
+          "hash": {
+            "1": "sha256:31edf25540b84f14108ceaee15fba8a5166b14ed9520d06fb9cc7b091e704098"
+          }
+        }
+      ]
+    }
+  ]
+}

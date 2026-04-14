@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "display_name": "Coyotesmission / MTT RUS module 2_3",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "2.2",
+          "compatibility": [
+            {
+              "version": "1.0",
+              "build": "7094"
+            }
+          ],
+          "expected_files": {
+            "1": "Coyotesmission_(MTT_RUS)_module_2_3.zip"
+          },
+          "url": {
+            "1": "https://boosty.to/arti100/posts/535a7881-e1fc-4422-bae3-413ca83d3a7f?share=post_link"
+          },
+          "size": {
+            "1": 3954394
+          },
+          "hash": {
+            "1": "sha256:4d2f1bcfa4b4258f82cbca27ac7c292bd2834f2122b283051d6eaada03eeccb8"
+          }
+        }
+      ]
+    }
+  ]
+}

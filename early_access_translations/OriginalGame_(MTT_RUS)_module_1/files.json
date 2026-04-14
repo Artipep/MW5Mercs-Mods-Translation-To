@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "display_name": "Original Game / MTT RUS module 1",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "2.2",
+          "compatibility": [
+            {
+              "version": "1.13.378",
+              "build": ""
+            }
+          ],
+          "expected_files": {
+            "1": "MW5Mercs-zzMTT_RUS_Module_1.zip"
+          },
+          "url": {
+            "1": "https://boosty.to/arti100/posts/535a7881-e1fc-4422-bae3-413ca83d3a7f?share=post_link"
+          },
+          "size": {
+            "1": 3533930
+          },
+          "hash": {
+            "1": "sha256:ced8ad3bfcc71bb35172234a91da5d50d6db54be5394d3d0dafe12e7d7dbe455"
+          }
+        }
+      ]
+    }
+  ]
+}

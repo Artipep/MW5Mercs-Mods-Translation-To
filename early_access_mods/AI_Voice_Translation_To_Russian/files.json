@@ -1,0 +1,64 @@
+{
+  "files": [
+    {
+      "display_name": "AI Voice Translation To Russian",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "0.3",
+          "description": "Основной мод",
+          "expected_files": {
+            "1": "AI Voice Translation To Russian v0.3.part1.rar",
+            "2": "AI Voice Translation To Russian v0.3.part2.rar",
+            "3": "AI Voice Translation To Russian v0.3.part3.rar"
+          },
+          "url": {
+            "1": "https://boosty.to/arti100/posts/1acb8448-3be8-4c08-ae2d-a52738ff7d94?share=post_link",
+            "2": "https://boosty.to/arti100/posts/1acb8448-3be8-4c08-ae2d-a52738ff7d94?share=post_link",
+            "3": "https://boosty.to/arti100/posts/1acb8448-3be8-4c08-ae2d-a52738ff7d94?share=post_link"
+          },
+          "size": {
+            "1": 1048576000,
+            "2": 1048576000,
+            "3": 729978606
+          },
+          "hash": {
+            "1": "sha256:175f74a78a3356109c1c06832b57788c979c2c7eb6cdef173f1c5444d4bafbbc",
+            "2": "sha256:2da90fae98ef95e7871c042af831d3855cab0609034e38129ec37db48c6e873d",
+            "3": "sha256:c3db9e2abce386ff49aa2467691fd050aaa253296ca63a7ca5cefd515244199e"
+          }
+        }
+      ]
+    },
+    {
+      "display_name": "Ролики",
+      "category": "OPTIONAL",
+      "versions": [
+        {
+          "version": "FINAL-1",
+          "description": "Ролики",
+          "expected_files": {
+            "1": "AI Voice Translation To Russian Video FINAL-1.part1.rar",
+            "2": "AI Voice Translation To Russian Video FINAL-1.part2.rar",
+            "3": "AI Voice Translation To Russian Video FINAL-1.part3.rar"
+          },
+          "url": {
+            "1": "https://boosty.to/arti100/posts/53e9115a-c4fa-480e-8c02-ced4d19fe7a0?share=post_link",
+            "2": "https://boosty.to/arti100/posts/53e9115a-c4fa-480e-8c02-ced4d19fe7a0?share=post_link",
+            "3": "https://boosty.to/arti100/posts/53e9115a-c4fa-480e-8c02-ced4d19fe7a0?share=post_link"
+          },
+          "size": {
+            "1": 1048576000,
+            "2": 1048576000,
+            "3": 821961950
+          },
+          "hash": {
+            "1": "sha256:684438086c6034b0e62db11ddf92f3209bb1d6623f0a68ecf21b543734a0874e",
+            "2": "sha256:fb0952b8f6e5fd4cb03bd139cdad85634b2f7846f3dfc4c39c16b4856a4bc10f",
+            "3": "sha256:e0a7f87df54c843f5b5a82a5b147fb228244736e51daaf50a040f4797d19bf08"
+          }
+        }
+      ]
+    }
+  ]
+}

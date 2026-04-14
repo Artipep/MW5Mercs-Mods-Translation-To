@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "display_name": "Yet Another Weapon / MTT RUS module 2_3",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "2.2",
+          "compatibility": [
+            {
+              "version": "2.4.6",
+              "build": "536"
+            }
+          ],
+          "expected_files": {
+            "1": "YetAnotherWeapon_(MTT_RUS)_module_2_3.zip"
+          },
+          "url": {
+            "1": "https://boosty.to/arti100/posts/535a7881-e1fc-4422-bae3-413ca83d3a7f?share=post_link"
+          },
+          "size": {
+            "1": 5835505
+          },
+          "hash": {
+            "1": "sha256:9c3ec72e96b7a3cc579aa2fc975ea87704d3bb71589f1776ef5a9097f7834433"
+          }
+        }
+      ]
+    }
+  ]
+}

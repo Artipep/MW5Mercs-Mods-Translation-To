@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "display_name": "YASV Complete Edition Patch / MTT RUS module 2_3",
+      "category": "MAIN",
+      "versions": [
+        {
+          "version": "2.2",
+          "compatibility": [
+            {
+              "version": "1.0b",
+              "build": "476"
+            }
+          ],
+          "expected_files": {
+            "1": "YASVCompleteEditionPatch_(MTT_RUS)_module_2_3.zip"
+          },
+          "url": {
+            "1": "https://boosty.to/arti100/posts/535a7881-e1fc-4422-bae3-413ca83d3a7f?share=post_link"
+          },
+          "size": {
+            "1": 4554994
+          },
+          "hash": {
+            "1": "sha256:e83bcc018526d99442ead014a3a82ee814584e15fb1d3bdc81657736d9addac1"
+          }
+        }
+      ]
+    }
+  ]
+}
