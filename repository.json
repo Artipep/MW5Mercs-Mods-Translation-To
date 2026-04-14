@@ -5,25 +5,54 @@
 	  "name": "Моды (Nexusmods)",
       "type": "nexus_api",
 	  "is_translation": "false",
-      "path": "nexusmods_mods"
+      "path": "nexusmods_mods",
+      "mods": ["AI_Voice_Translation_To_Russian"]
     },
 	"2": {
 	  "name": "Переводы (Nexusmods)",
       "type": "nexus_api",
 	  "is_translation": "true",
-      "path": "nexusmods_translations"
+      "path": "nexusmods_translations",
+      "mods": ["Mods_Translation_To_Russian"]
     },
     "3": {
 	  "name": "Моды (ранний доступ)",
       "type": "repository",
 	  "is_translation": "false",
-      "path": "early_access_mods"
+      "path": "early_access_mods",
+      "mods": ["AI_Voice_Translation_To_Russian"]
     },
 	"4": {
 	  "name": "Переводы (ранний доступ)",
       "type": "repository",
 	  "is_translation": "true",
-      "path": "early_access_translations"
+      "path": "early_access_translations",
+      "mods": [
+        "CoopRewards_(MTT_RUS)_module_2_3",
+        "CoopUnlocked_(MTT_RUS)_module_2_3",
+        "Coyotesmission_(MTT_RUS)_module_2_3",
+        "harjel_EquipmentCollectionRevived_(MTT_RUS)_module_2_3",
+        "harjel_EquipmentCollection_(MTT_RUS)_module_2_3",
+        "Lore-based Mech Variants - YAML Edition_(MTT_RUS)_module_2_3",
+        "OriginalGame_(MTT_RUS)_module_1",
+        "OriginalGame_(MTT_RUS)_module_2_3",
+        "PrecisionHUD_(MTT_RUS)_module_2_3",
+        "SpecialVariants_(MTT_RUS)_module_2_3",
+        "Tactical_HUD_(MTT_RUS)_module_2_3",
+        "TTRulezAIMod3_(MTT_RUS)_module_2_3",
+        "UnderTonnageBonus2_(MTT_RUS)_module_2_3",
+        "vonBiomes_(MTT_RUS)_module_2_3",
+        "YAGDMC_(MTT_RUS)_module_2_3",
+        "YAGM_2_(MTT_RUS)_module_2_3",
+        "YASVCompleteEditionPatch_(MTT_RUS)_module_2_3",
+        "YetAnotherLegendaryMech_(MTT_RUS)_module_2_3",
+        "YetAnotherMechlabMechs_(MTT_RUS)_module_2_3",
+        "YetAnotherMechlab_(MTT_RUS)_module_2_3",
+        "YetAnotherTraitAddon_(MTT_RUS)_module_2_3",
+        "YetAnotherWeaponClan_(MTT_RUS)_module_2_3",
+        "YetAnotherWeaponCompleteEdition_(MTT_RUS)_module_2_3",
+        "YetAnotherWeapon_(MTT_RUS)_module_2_3"
+      ]
     }
   }
 }
