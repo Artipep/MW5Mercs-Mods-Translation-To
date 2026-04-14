@@ -5,25 +5,41 @@
 	  "name": "nexusmods_translations",
       "type": "nexus_api",
 	  "is_translation": "true",
-      "path": "nexusmods_translations"
+      "path": "nexusmods_translations",
+      "mods": ["mod2"]
     },
 	"2": {
 	  "name": "nexusmods_mods",
       "type": "nexus_api",
 	  "is_translation": "false",
-      "path": "nexusmods_mods"
+      "path": "nexusmods_mods",
+      "mods": ["mod1"]
     },
     "3": {
 	  "name": "early_access_translations",
       "type": "repository",
 	  "is_translation": "true",
-      "path": "early_access_translations"
+      "path": "early_access_translations",
+      "mods": ["ExampleModTranslation", "GameTranslationRUS"]
     },
     "4": {
 	  "name": "early_access_mods",
       "type": "repository",
 	  "is_translation": "false",
-      "path": "early_access_mods"
+      "path": "early_access_mods",
+      "mods": [
+        "CampaignExtension",
+        "EconomyFix",
+        "ExampleEAMod",
+        "FeaturedMod1",
+        "MechExpansion",
+        "MissionPack",
+        "RegularMod2",
+        "SoundOverhaul",
+        "UIOverhaul",
+        "VisualEnhancement",
+        "WeaponPack"
+      ]
     }
   }
 }
