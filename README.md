@@ -800,6 +800,8 @@ This file is created by the program in each installed mod's folder. It stores me
 
 **This file is managed automatically** — it is created and updated when installing mods from the catalog, creating links, or updating mods. Mod authors can also include it in their archives to pre-configure links.
 
+> **Note for users:** If a mod author includes `mod_manager_properties.json` in the archive, you need to enable the **"Copy mod_manager_properties.json"** checkbox on the download archives step during installation. Alternatively, you can enable this checkbox by default in **Settings** so it is always pre-checked.
+
 #### Example
 
 ```json
@@ -907,6 +909,8 @@ This allows mod authors to ship recommended load order rules with their mods.
 4. All imported rules are added as **disabled** (the user must enable them manually)
 5. Duplicate rules (matching `mod_folder` + `rule_type` + `target_folder`) are skipped
 6. The `mod_manager_install_rules.json` file is **deleted** from the installed folder after processing
+
+> **Note for users:** If a mod author includes `mod_manager_install_rules.json` in the archive, you need to enable the **"Copy mod_manager_install_rules.json"** checkbox on the download archives step during installation. Alternatively, you can enable this checkbox by default in **Settings** so it is always pre-checked.
 
 ---
 
@@ -2343,6 +2347,8 @@ nexusmods_mods/
 
 **Файл управляется автоматически** — он создаётся и обновляется при установке модов из каталога, создании связей или обновлении модов. Авторы модов также могут включить его в свой архив для предварительной настройки связей.
 
+> **Примечание для пользователей:** Если автор мода включает `mod_manager_properties.json` в архив, вам необходимо включить галочку **«Копировать mod_manager_properties.json»** на этапе скачивания архивов при установке. Либо можно включить эту галочку по умолчанию в **Настройках**, чтобы она всегда была активна.
+
 #### Пример
 
 ```json
@@ -2450,6 +2456,8 @@ nexusmods_mods/
 4. Все импортированные правила добавляются как **выключенные** (пользователь должен включить их вручную)
 5. Дубликаты правил (совпадение по `mod_folder` + `rule_type` + `target_folder`) пропускаются
 6. Файл `mod_manager_install_rules.json` **удаляется** из папки установленного мода после обработки
+
+> **Примечание для пользователей:** Если автор мода включает `mod_manager_install_rules.json` в архив, вам необходимо включить галочку **«Копировать mod_manager_install_rules.json»** на этапе скачивания архивов при установке. Либо можно включить эту галочку по умолчанию в **Настройках**, чтобы она всегда была активна.
 
 ---
 
@@ -3881,6 +3889,8 @@ nexusmods_mods/
 
 **Файл керується автоматично** — він створюється та оновлюється при встановленні модів з каталогу, створенні зв'язків або оновленні модів. Автори модів також можуть включити його в свій архів для попереднього налаштування зв'язків.
 
+> **Примітка для користувачів:** Якщо автор мода включає `mod_manager_properties.json` в архів, вам потрібно увімкнути галочку **«Копіювати mod_manager_properties.json»** на етапі завантаження архівів при встановленні. Або можна увімкнути цю галочку за замовчуванням у **Налаштуваннях**, щоб вона завжди була активна.
+
 #### Приклад
 
 ```json
@@ -3988,6 +3998,8 @@ nexusmods_mods/
 4. Усі імпортовані правила додаються як **вимкнені** (користувач повинен увімкнути їх вручну)
 5. Дублікати правил (збіг за `mod_folder` + `rule_type` + `target_folder`) пропускаються
 6. Файл `mod_manager_install_rules.json` **видаляється** з папки встановленого мода після обробки
+
+> **Примітка для користувачів:** Якщо автор мода включає `mod_manager_install_rules.json` в архів, вам потрібно увімкнути галочку **«Копіювати mod_manager_install_rules.json»** на етапі завантаження архівів при встановленні. Або можна увімкнути цю галочку за замовчуванням у **Налаштуваннях**, щоб вона завжди була активна.
 
 ---
 
