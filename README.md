@@ -339,7 +339,7 @@ The program reads the repository on startup and shows mods in the catalog. When 
 
 **Supported hosting methods:**
 - Any HTTP/HTTPS server with direct file access (GitHub Pages, Nginx, Apache, CDN)
-- GitHub / Gitea / Forgejo repository (raw links)
+- GitHub / GitLab / Codeberg / Bitbucket / Gitea / Forgejo repository (auto-normalizes web URLs to raw)
 - Local folder on disk (for testing)
 
 ---
@@ -395,28 +395,32 @@ Root repository description file. **Required.**
       "type": "repository",
       "is_translation": false,
       "path": "early_access_mods",
-      "display_name": "Early Access Mods"
+      "display_name": "Early Access Mods",
+      "mods": ["WeaponPack", "BalanceMod"]
     },
     "2": {
       "name": "early_access_translations",
       "type": "repository",
       "is_translation": true,
       "path": "early_access_translations",
-      "display_name": "Translations"
+      "display_name": "Translations",
+      "mods": ["RussianTranslation"]
     },
     "3": {
       "name": "nexusmods_mods",
       "type": "nexus_api",
       "is_translation": false,
       "path": "nexusmods_mods",
-      "display_name": "Popular Nexusmods Mods"
+      "display_name": "Popular Nexusmods Mods",
+      "mods": ["12345"]
     },
     "4": {
       "name": "nexusmods_translations",
       "type": "nexus_api",
       "is_translation": true,
       "path": "nexusmods_translations",
-      "display_name": "Nexusmods Translations"
+      "display_name": "Nexusmods Translations",
+      "mods": ["67890"]
     }
   }
 }
@@ -433,11 +437,12 @@ Root repository description file. **Required.**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `name` | string | yes | System category name. Must be one of: `early_access_mods`, `early_access_translations`, `nexusmods_mods`, `nexusmods_translations` |
+| `name` | string | yes | Category name — any string. Used as the internal identifier for the category. Also serves as the folder path if `path` is not specified |
 | `type` | string | yes | `repository` — full metadata in folder, `nexus_api` — only ID for Nexusmods API query |
 | `is_translation` | bool | yes | `true` if the category contains translations |
 | `path` | string | yes | Relative path to category folder from repository root |
 | `display_name` | string | optional | Custom display name for the interface |
+| `mods` | array of strings | required for remote | List of mod folder names. **Required** for remote (HTTP) repositories — without it the program cannot discover mods. For local repositories this is optional (the program reads the filesystem). |
 
 > **Important:** category keys (`"1"`, `"2"`, ...) are arbitrary strings. The program uses the `name` field inside the object as the canonical identifier.
 
@@ -769,7 +774,7 @@ When a translation is installed from the catalog:
 1. `for_mod_name` is read from the repository `mod.json`.
 2. `"Original_game"` is converted to `"Game"` and stored in `translation_requirements_mod_name` in `mod_manager_properties.json`.
 3. The `compatibility` array is converted to a semicolon-separated string `"version|build;version|build"` and stored in `translation_requirements_mod_version_build`.
-4. On the Installed/Files pages, the program checks compatibility — for `"Game"`, it compares against `config.game_version`; for regular mods, it searches installed mods by `display_name`.
+4. On the Installed/Files pages, the program checks compatibility — for `"Game"`, it compares against `config.game_version`; for regular mods, it searches installed mods by `file_name`.
 
 > If `mod_manager_properties.json` inside the archive already contains `translation_requirements_*` fields, the archive values take priority and are not overwritten by repository data.
 
@@ -799,7 +804,7 @@ This file is created by the program in each installed mod's folder. It stores me
 
 ```json
 {
-  "display_name": "My Awesome Mod",
+  "file_name": "My Awesome Mod",
   "installed_version": "2.1.0",
   "is_files_mod": false,
   "files_mod_move_to": "",
@@ -825,7 +830,7 @@ This file is created by the program in each installed mod's folder. It stores me
 
 | Field | Type | Description |
 |---|---|---|
-| `display_name` | string | Mod display name in the manager |
+| `file_name` | string | Mod file display name in the manager |
 | `installed_version` | string | Currently installed version |
 | `is_files_mod` | bool | `true` if this is a files mod (no `mod.json`, files placed directly) |
 | `is_nexusmods` | bool | `true` if linked to a Nexusmods mod |
@@ -1435,19 +1440,23 @@ my-mw5-repo/
 
 ### Publishing a Repository
 
-#### GitHub / Gitea / Forgejo
+#### GitHub / GitLab / Codeberg / Bitbucket / Gitea / Forgejo
 
 Place the repository folder in a public git repository. The program accesses raw files directly.
 
-**Example URL for GitHub:**
-```
-https://raw.githubusercontent.com/username/mw5-repo/main
-```
+The program **automatically converts** web URLs to raw file URLs for the following platforms:
 
-The user enters this URL in the program settings. The program will download:
-```
-https://raw.githubusercontent.com/username/mw5-repo/main/repository.json
-```
+| Platform | User enters | Program converts to |
+|---|---|---|
+| GitHub | `https://github.com/user/repo` | `https://raw.githubusercontent.com/user/repo/main` |
+| GitLab | `https://gitlab.com/user/repo` | `https://gitlab.com/user/repo/-/raw/main` |
+| Codeberg | `https://codeberg.org/user/repo` | `https://codeberg.org/user/repo/raw/branch/main` |
+| Bitbucket | `https://bitbucket.org/user/repo` | `https://bitbucket.org/user/repo/raw/main` |
+| Gitea (self-hosted) | `https://gitea.example.com/user/repo/src/branch/main` | `https://gitea.example.com/user/repo/raw/branch/main` |
+
+> **Note:** If the `main` branch is not found, the program will also try `master`. You can also specify a branch explicitly, e.g. `https://github.com/user/repo/tree/dev`.
+
+> **Self-hosted Gitea/Forgejo:** The program cannot auto-detect custom domains. Use URLs containing `/src/branch/...` for auto-conversion, or provide the raw URL directly: `https://gitea.example.com/user/repo/raw/branch/main`.
 
 **Example URL for Forgejo:**
 ```
@@ -1476,8 +1485,8 @@ or
 2. **File links** in `url` must be direct (no redirects or authorization). GitHub Releases provides direct raw links.
 3. **Encoding** of all JSON and Markdown files — UTF-8.
 4. **`is_translation`** is important: translations are displayed separately from main mods in the interface.
-5. The `name` field of a category must match one of the reserved values: `early_access_mods`, `early_access_translations`, `nexusmods_mods`, `nexusmods_translations` — otherwise the category will not be recognized.
-6. The **first version** in each file group's `versions` array is considered the latest (current). Versions should be listed from newest to oldest.
+5. The `name` field of a category can be any string — the program uses it as an internal identifier and follows the path specified in `path` (or falls back to `name` as the path).
+6. Versions in each file group's `versions` array can be listed in **any order** — the program automatically determines the latest version by comparing version strings using semantic versioning.
 
 ---
 
@@ -1873,7 +1882,7 @@ MW5 загружает моды в порядке, определённом по
 
 **Поддерживаемые способы хостинга:**
 - Любой HTTP/HTTPS сервер с прямым доступом к файлам (GitHub Pages, Nginx, Apache, CDN)
-- GitHub / Gitea / Forgejo репозиторий (raw-ссылки)
+- GitHub / GitLab / Codeberg / Bitbucket / Gitea / Forgejo репозиторий (автонормализация web-URL в raw)
 - Локальная папка на диске (для тестирования)
 
 ---
@@ -1929,28 +1938,32 @@ my-repository/
       "type": "repository",
       "is_translation": false,
       "path": "early_access_mods",
-      "display_name": "Моды раннего доступа"
+      "display_name": "Моды раннего доступа",
+      "mods": ["WeaponPack", "BalanceMod"]
     },
     "2": {
       "name": "early_access_translations",
       "type": "repository",
       "is_translation": true,
       "path": "early_access_translations",
-      "display_name": "Переводы"
+      "display_name": "Переводы",
+      "mods": ["RussianTranslation"]
     },
     "3": {
       "name": "nexusmods_mods",
       "type": "nexus_api",
       "is_translation": false,
       "path": "nexusmods_mods",
-      "display_name": "Популярные моды с Nexusmods"
+      "display_name": "Популярные моды с Nexusmods",
+      "mods": ["12345"]
     },
     "4": {
       "name": "nexusmods_translations",
       "type": "nexus_api",
       "is_translation": true,
       "path": "nexusmods_translations",
-      "display_name": "Переводы с Nexusmods"
+      "display_name": "Переводы с Nexusmods",
+      "mods": ["67890"]
     }
   }
 }
@@ -1967,11 +1980,12 @@ my-repository/
 
 | Поле | Тип | Обязательность | Описание |
 |---|---|---|---|
-| `name` | string | обязательно | Системное имя категории. Должно быть одним из: `early_access_mods`, `early_access_translations`, `nexusmods_mods`, `nexusmods_translations` |
+| `name` | string | обязательно | Имя категории — любая строка. Используется как внутренний идентификатор. Также используется как путь к папке, если `path` не указан |
 | `type` | string | обязательно | `repository` — полные метаданные в папке, `nexus_api` — только ID для запроса к Nexusmods API |
 | `is_translation` | bool | обязательно | `true` если категория содержит переводы |
 | `path` | string | обязательно | Относительный путь к папке категории от корня репозитория |
 | `display_name` | string | опционально | Пользовательское имя для отображения в интерфейсе |
+| `mods` | массив строк | обязательно для удалённых | Список имён папок модов. **Обязателен** для удалённых (HTTP) репозиториев — без него программа не сможет обнаружить моды. Для локальных репозиториев опционален (программа читает файловую систему). |
 
 > **Важно:** ключи категорий (`"1"`, `"2"`, ...) — произвольные строки. Программа использует поле `name` внутри объекта как канонический идентификатор.
 
@@ -2303,7 +2317,7 @@ nexusmods_mods/
 1. `for_mod_name` считывается из `mod.json` репозитория.
 2. `"Original_game"` преобразуется в `"Game"` и записывается в `translation_requirements_mod_name` в `mod_manager_properties.json`.
 3. Массив `compatibility` преобразуется в строку `"version|build;version|build"` с разделением точкой с запятой и записывается в `translation_requirements_mod_version_build`.
-4. На страницах «Установленные»/«Файлы» программа проверяет совместимость — для `"Game"` сравнивает с `config.game_version`; для обычных модов ищет установленные моды по `display_name`.
+4. На страницах «Установленные»/«Файлы» программа проверяет совместимость — для `"Game"` сравнивает с `config.game_version`; для обычных модов ищет установленные моды по `file_name`.
 
 > Если `mod_manager_properties.json` внутри архива уже содержит поля `translation_requirements_*`, значения из архива имеют приоритет и не перезаписываются данными из репозитория.
 
@@ -2333,7 +2347,7 @@ nexusmods_mods/
 
 ```json
 {
-  "display_name": "My Awesome Mod",
+  "file_name": "My Awesome Mod",
   "installed_version": "2.1.0",
   "is_files_mod": false,
   "files_mod_move_to": "",
@@ -2359,7 +2373,7 @@ nexusmods_mods/
 
 | Поле | Тип | Описание |
 |---|---|---|
-| `display_name` | string | Отображаемое имя мода в менеджере |
+| `file_name` | string | Отображаемое имя мода в менеджере |
 | `installed_version` | string | Текущая установленная версия |
 | `is_files_mod` | bool | `true` если это файловый мод (без `mod.json`, файлы размещаются напрямую) |
 | `is_nexusmods` | bool | `true` если связан с модом на Nexusmods |
@@ -2964,19 +2978,23 @@ my-mw5-repo/
 
 ### Публикация репозитория
 
-#### GitHub / Gitea / Forgejo
+#### GitHub / GitLab / Codeberg / Bitbucket / Gitea / Forgejo
 
 Разместите папку репозитория в публичном git-репозитории. Программа обращается к raw-файлам напрямую.
 
-**Пример URL для GitHub:**
-```
-https://raw.githubusercontent.com/username/mw5-repo/main
-```
+Программа **автоматически конвертирует** web-URL в raw URL для следующих платформ:
 
-Пользователь вводит этот URL в настройках программы. Программа скачает:
-```
-https://raw.githubusercontent.com/username/mw5-repo/main/repository.json
-```
+| Платформа | Пользователь вводит | Программа конвертирует в |
+|---|---|---|
+| GitHub | `https://github.com/user/repo` | `https://raw.githubusercontent.com/user/repo/main` |
+| GitLab | `https://gitlab.com/user/repo` | `https://gitlab.com/user/repo/-/raw/main` |
+| Codeberg | `https://codeberg.org/user/repo` | `https://codeberg.org/user/repo/raw/branch/main` |
+| Bitbucket | `https://bitbucket.org/user/repo` | `https://bitbucket.org/user/repo/raw/main` |
+| Gitea (свой сервер) | `https://gitea.example.com/user/repo/src/branch/main` | `https://gitea.example.com/user/repo/raw/branch/main` |
+
+> **Примечание:** Если ветка `main` не найдена, программа также попробует `master`. Можно указать ветку явно, напр.: `https://github.com/user/repo/tree/dev`.
+
+> **Самостоятельный Gitea/Forgejo:** Программа не может автоопределить пользовательские домены. Используйте URL с `/src/branch/...` для автоконвертации или укажите raw URL напрямую: `https://gitea.example.com/user/repo/raw/branch/main`.
 
 **Пример URL для Forgejo:**
 ```
@@ -3005,8 +3023,8 @@ D:\MyMods\TestRepository
 2. **Ссылки на файлы** в `url` должны быть прямыми (без редиректов и авторизации). GitHub Releases даёт прямые raw-ссылки.
 3. **Кодировка** всех JSON и Markdown файлов — UTF-8.
 4. **`is_translation`** важен: переводы отображаются отдельно от основных модов в интерфейсе.
-5. Поле `name` у категории должно совпадать с одним из зарезервированных значений: `early_access_mods`, `early_access_translations`, `nexusmods_mods`, `nexusmods_translations` — иначе категория не будет распознана программой.
-6. **Первая версия** в массиве `versions` каждой файловой группы считается последней (актуальной). Версии рекомендуется располагать от новых к старым.
+5. Поле `name` у категории может быть любой строкой — программа использует его как внутренний идентификатор и следует по пути, указанному в `path` (или по `name`, если `path` не задан).
+6. Версии в массиве `versions` каждой файловой группы могут располагаться в **любом порядке** — программа автоматически определяет актуальную версию, сравнивая строки версий по семантическому версионированию.
 
 ---
 
@@ -3402,7 +3420,7 @@ MW5 завантажує моди в порядку, визначеному по
 
 **Підтримувані способи хостингу:**
 - Будь-який HTTP/HTTPS сервер з прямим доступом до файлів (GitHub Pages, Nginx, Apache, CDN)
-- GitHub / Gitea / Forgejo репозиторій (raw-посилання)
+- GitHub / GitLab / Codeberg / Bitbucket / Gitea / Forgejo репозиторій (автонормалізація web-URL в raw)
 - Локальна папка на диску (для тестування)
 
 ---
@@ -3458,28 +3476,32 @@ my-repository/
       "type": "repository",
       "is_translation": false,
       "path": "early_access_mods",
-      "display_name": "Моди раннього доступу"
+      "display_name": "Моди раннього доступу",
+      "mods": ["WeaponPack", "BalanceMod"]
     },
     "2": {
       "name": "early_access_translations",
       "type": "repository",
       "is_translation": true,
       "path": "early_access_translations",
-      "display_name": "Переклади"
+      "display_name": "Переклади",
+      "mods": ["RussianTranslation"]
     },
     "3": {
       "name": "nexusmods_mods",
       "type": "nexus_api",
       "is_translation": false,
       "path": "nexusmods_mods",
-      "display_name": "Популярні моди з Nexusmods"
+      "display_name": "Популярні моди з Nexusmods",
+      "mods": ["12345"]
     },
     "4": {
       "name": "nexusmods_translations",
       "type": "nexus_api",
       "is_translation": true,
       "path": "nexusmods_translations",
-      "display_name": "Переклади з Nexusmods"
+      "display_name": "Переклади з Nexusmods",
+      "mods": ["67890"]
     }
   }
 }
@@ -3496,11 +3518,12 @@ my-repository/
 
 | Поле | Тип | Обов'язковість | Опис |
 |---|---|---|---|
-| `name` | string | обов'язково | Системне ім'я категорії. Повинно бути одним з: `early_access_mods`, `early_access_translations`, `nexusmods_mods`, `nexusmods_translations` |
+| `name` | string | обов'язково | Ім'я категорії — будь-який рядок. Використовується як внутрішній ідентифікатор. Також використовується як шлях до папки, якщо `path` не вказано |
 | `type` | string | обов'язково | `repository` — повні метадані в папці, `nexus_api` — тільки ID для запиту до Nexusmods API |
 | `is_translation` | bool | обов'язково | `true` якщо категорія містить переклади |
 | `path` | string | обов'язково | Відносний шлях до папки категорії від кореня репозиторію |
 | `display_name` | string | опціонально | Користувацьке ім'я для відображення в інтерфейсі |
+| `mods` | масив рядків | обов'язково для віддалених | Список імен папок модів. **Обов'язковий** для віддалених (HTTP) репозиторіїв — без нього програма не зможе виявити моди. Для локальних репозиторіїв опціональний (програма читає файлову систему). |
 
 > **Важливо:** ключі категорій (`"1"`, `"2"`, ...) — довільні рядки. Програма використовує поле `name` всередині об'єкта як канонічний ідентифікатор.
 
@@ -3832,7 +3855,7 @@ nexusmods_mods/
 1. `for_mod_name` зчитується з `mod.json` репозиторію.
 2. `"Original_game"` перетворюється на `"Game"` та записується в `translation_requirements_mod_name` у `mod_manager_properties.json`.
 3. Масив `compatibility` перетворюється на рядок `"version|build;version|build"` з розділенням крапкою з комою та записується в `translation_requirements_mod_version_build`.
-4. На сторінках «Встановлені»/«Файли» програма перевіряє сумісність — для `"Game"` порівнює з `config.game_version`; для звичайних модів шукає встановлені моди за `display_name`.
+4. На сторінках «Встановлені»/«Файли» програма перевіряє сумісність — для `"Game"` порівнює з `config.game_version`; для звичайних модів шукає встановлені моди за `file_name`.
 
 > Якщо `mod_manager_properties.json` всередині архіву вже містить поля `translation_requirements_*`, значення з архіву мають пріоритет і не перезаписуються даними з репозиторію.
 
@@ -3862,7 +3885,7 @@ nexusmods_mods/
 
 ```json
 {
-  "display_name": "My Awesome Mod",
+  "file_name": "My Awesome Mod",
   "installed_version": "2.1.0",
   "is_files_mod": false,
   "files_mod_move_to": "",
@@ -3888,7 +3911,7 @@ nexusmods_mods/
 
 | Поле | Тип | Опис |
 |---|---|---|
-| `display_name` | string | Назва мода для відображення в менеджері |
+| `file_name` | string | Назва мода для відображення в менеджері |
 | `installed_version` | string | Поточна встановлена версія |
 | `is_files_mod` | bool | `true` якщо це файловий мод (без `mod.json`, файли розміщуються напряму) |
 | `is_nexusmods` | bool | `true` якщо зв'язаний з модом на Nexusmods |
@@ -4493,19 +4516,23 @@ my-mw5-repo/
 
 ### Публікація репозиторію
 
-#### GitHub / Gitea / Forgejo
+#### GitHub / GitLab / Codeberg / Bitbucket / Gitea / Forgejo
 
 Розмістіть папку репозиторію у публічному git-репозиторії. Програма звертається до raw-файлів напряму.
 
-**Приклад URL для GitHub:**
-```
-https://raw.githubusercontent.com/username/mw5-repo/main
-```
+Програма **автоматично конвертує** web-URL у raw URL для таких платформ:
 
-Користувач вводить цей URL у налаштуваннях програми. Програма завантажить:
-```
-https://raw.githubusercontent.com/username/mw5-repo/main/repository.json
-```
+| Платформа | Користувач вводить | Програма конвертує в |
+|---|---|---|
+| GitHub | `https://github.com/user/repo` | `https://raw.githubusercontent.com/user/repo/main` |
+| GitLab | `https://gitlab.com/user/repo` | `https://gitlab.com/user/repo/-/raw/main` |
+| Codeberg | `https://codeberg.org/user/repo` | `https://codeberg.org/user/repo/raw/branch/main` |
+| Bitbucket | `https://bitbucket.org/user/repo` | `https://bitbucket.org/user/repo/raw/main` |
+| Gitea (власний сервер) | `https://gitea.example.com/user/repo/src/branch/main` | `https://gitea.example.com/user/repo/raw/branch/main` |
+
+> **Примітка:** Якщо гілка `main` не знайдена, програма також спробує `master`. Можна вказати гілку явно, напр.: `https://github.com/user/repo/tree/dev`.
+
+> **Самостійний Gitea/Forgejo:** Програма не може автовизначити користувацькі домени. Використовуйте URL з `/src/branch/...` для автоконвертації або вкажіть raw URL напряму: `https://gitea.example.com/user/repo/raw/branch/main`.
 
 **Приклад URL для Forgejo:**
 ```
@@ -4534,8 +4561,8 @@ D:\MyMods\TestRepository
 2. **Посилання на файли** в `url` повинні бути прямими (без редиректів та авторизації). GitHub Releases надає прямі raw-посилання.
 3. **Кодування** всіх JSON та Markdown файлів — UTF-8.
 4. **`is_translation`** важливий: переклади відображаються окремо від основних модів в інтерфейсі.
-5. Поле `name` у категорії повинно збігатися з одним з зарезервованих значень: `early_access_mods`, `early_access_translations`, `nexusmods_mods`, `nexusmods_translations` — інакше категорія не буде розпізнана програмою.
-6. **Перша версія** в масиві `versions` кожної файлової групи вважається останньою (актуальною). Версії рекомендується розміщувати від нових до старих.
+5. Поле `name` у категорії може бути будь-яким рядком — програма використовує його як внутрішній ідентифікатор і слідує за шляхом, вказаним у `path` (або за `name`, якщо `path` не задано).
+6. Версії в масиві `versions` кожної файлової групи можуть розміщуватися в **будь-якому порядку** — програма автоматично визначає актуальну версію, порівнюючи рядки версій за семантичним версіонуванням.
 
 ---
 
